@@ -1,23 +1,71 @@
-import logo from './logo.svg';
-import './App.css';
+// import Home from './pages/Home';
+import { useEffect } from "react";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Link,
+} from "react-router-dom";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { app } from "./firebase";
+import { useDispatch, useSelector } from "react-redux";
+import { selectUser, setUser } from "./redux/Auth/authSlice";
+import Protected from "./components/Protected";
+import { removeSelectedChat, setCurrentUser } from "./redux/Chats/chatSlice";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <Protected>
+        <Home />
+      </Protected>
+    ),
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/signup",
+    element: <Signup />,
+  },
+]);
+const auth = getAuth(app);
 
 function App() {
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
+
+  useEffect(() => {
+    const unsub = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { displayName, email, photoURL, uid } = user;
+        dispatch(setUser({ displayName, email, photoURL, uid }));
+        dispatch(setCurrentUser({ displayName, email, photoURL, uid }));
+      }
+      else
+      {
+        dispatch(setUser(null));
+        dispatch(setCurrentUser(null));
+        dispatch(removeSelectedChat());
+      }
+    });
+
+    return () => {
+      unsub();
+    };
+  }, [dispatch]);
+
+
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="h-full">
+      <RouterProvider router={router} />
     </div>
   );
 }
