@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectUser, setUser } from "./redux/Auth/authSlice";
 import Protected from "./components/Protected";
 import { removeSelectedChat, setCurrentUser } from "./redux/Chats/chatSlice";
+import PageNotFound from "./pages/PageNotFound";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
     path: "/signup",
     element: <Signup />,
   },
+  {
+    path: "*",
+    element: <PageNotFound/>
+  }
 ]);
 const auth = getAuth(app);
 
