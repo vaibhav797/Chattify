@@ -67,7 +67,7 @@ const Friends = () => {
                 className="h-12 w-12 rounded-[50%] object-cover"
               />
               <div>
-                <span className=" font-semibold text-base">
+                <span className=" font-bold text-base">
                   {user[1].userInfo.displayName}
                 </span>
                 <p className=" hidden md:block font-light text-sm text-gray-200">

@@ -105,7 +105,7 @@ const Search = () => {
   };
 
   return (
-    <div className="box border-b-[1px]  bg-inherit border-gray-200">
+    <div className="box border-b-[1px] border-slate-500 mb-1 bg-inherit">
       <div className="flex justify-between items-center">
         <input
           type="text"
