@@ -77,7 +77,7 @@ const Signup = () => {
 
   return (
     <div className="flex items-center justify-center bg-indigo-200 w-full h-screen">
-      <div className="flex flex-col bg-white px-6 min-[920px]:px-10 min-[1060px]:px-16 py-4 w-1/3 rounded-md gap-6">
+      <div className="flex flex-col bg-white px-6 min-[920px]:px-10 min-[1060px]:px-16 py-4 max-[640px]:h-full w-full sm:w-2/3 md:w-3/6 lg:w-4/12 rounded-md gap-6 shadow-[rgba(0,0,0,0.25)_0px_14px_28px,rgba(0,0,0,0.22)_0px_10px_10px]">
         <span className=" text-4xl text-indigo-900 text-center font-bold">
           Chattify
         </span>

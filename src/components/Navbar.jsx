@@ -14,7 +14,7 @@ const Navbar = () => {
       <span className='font-bold text-2xl'>Chattify</span>
       <div className="flex items-center gap-1">
         <div className='flex'>
-        <img src={user.photoURL} alt="" className='h-6 w-6 rounded-[50%] hidden md:inline-block object-cover' />
+        <img src={user.photoURL} alt="" className='h-6 w-6 rounded-[50%] hidden min-[500px]:inline-block object-cover' />
         <span className='mx-1 flex flex-wrap items-end justify-center'>{user.displayName}</span>
         </div>
         <button onClick={()=> signOut(auth)} className='bg-[#7f7fb4] p-1 rounded-sm text-xs text-indigo-100'>Logout</button>

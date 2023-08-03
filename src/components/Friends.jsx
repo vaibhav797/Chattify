@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import me from "../images/me.jpg";
 import { doc, getFirestore, onSnapshot } from "firebase/firestore";
 import { app } from "../firebase";
 import { useDispatch, useSelector } from "react-redux";
@@ -39,12 +38,12 @@ const Friends = () => {
     }
   };
 
-  const getHeight = () => {
-    const arr = Array.from(document.querySelectorAll(".box"));
+  // const getHeight = () => {
+  //   const arr = Array.from(document.querySelectorAll(".box"));
 
-    const h = arr.reduce((tot, cur) => tot + cur.offsetHeight, 0);
-    return h;
-  };
+  //   const h = arr.reduce((tot, cur) => tot + cur.offsetHeight, 0);
+  //   return h;
+  // };
 
   return (
     <div className={`h-[calc(100%-97px)] overflow-y-auto scroll`}>
@@ -70,7 +69,7 @@ const Friends = () => {
                 <span className=" font-bold text-base">
                   {user[1].userInfo.displayName}
                 </span>
-                <p className=" hidden md:block font-light text-sm text-gray-200">
+                <p className=" hidden sm:block font-light text-sm text-gray-200">
                   {user[1]?.lastMessage?.text}
                 </p>
               </div>
