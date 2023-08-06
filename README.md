@@ -8,11 +8,21 @@ A Web Application which ease the communication between two parties, by provindin
 
 ## Live Demo
 
-![Screenshot](./src/assets/login.png)
-![Screenshot](./src/assets/signup.png)
-![Screenshot](./src/assets/home.png)
-![Screenshot](./src/assets/chat.png)
-![Screenshot](./src/assets/image_msg.png)
+<table>
+  
+  <tr>
+    <td><img src="./src/assets/login.png" width=450 height=200></td>
+    <td><img src="./src/assets/signup.png" width=450 height=200></td>
+  </tr>
+  <tr>
+    <td><img src="./src/assets/home.png" width=450 height=200></td>
+    <td><img src="./src/assets/chat.png" width=450 height=200></td>
+  </tr>
+  <tr>
+    <td><img src="./src/assets/image_msg.png" width=450 height=200></td>
+  </tr>
+  
+ </table>
 
 Live Website: [Chattify](https://chattify-vaibhav.netlify.app/)
 
